@@ -7,10 +7,12 @@ export default {
         ToDo List
       </h2>
       <div class="input-area">
-        <input type="text" v-model="new_todo">
-        <button @click="addNewList">
-          Add Your Works
-        </button>
+        <form @submit.prevent="addNewList">
+          <input type="text" v-model="new_todo">
+          <button type="submit">
+            Add Your Works
+          </button>
+        </form>
       </div>
       <assignment-list title="In Progress:" :todolists=filters.inProgress></assignment-list>
       <assignment-list title="Complete:" :todolists=filters.completed></assignment-list>

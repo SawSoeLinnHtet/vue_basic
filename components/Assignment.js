@@ -7,7 +7,7 @@ export default{
           <p>
             {{ list.name }}
           </p>
-        </label>
+      </label>
       <button class="del-button">
         x
       </button>
