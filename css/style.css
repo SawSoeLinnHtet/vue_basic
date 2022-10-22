@@ -1,0 +1,76 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100vh;
+}
+
+body{
+  display: grid;
+  place-items: center;
+  background-color: cornflowerblue;
+}
+#app{
+  height: auto;
+  background-color: coral;
+  border-radius: 10px;
+  border: 3px solid #fafafa;
+}
+
+.input-area{
+  padding: 20px;
+  margin: 0px auto;
+}
+.input-area input{
+  padding: 10px 20px;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
+}
+.input-area button{
+  padding: 10px 5px;
+  border-radius: 5px;
+  border: 1px solid darkcyan;
+  background-color: lightpink;
+  color:#000;
+}
+.list-container{
+  height: auto;
+  background-color: coral;
+  padding: 20px;
+  margin: 0px auto;
+}
+.list-container ul{
+  list-style: none;
+  padding: 10px;
+  padding-top: 0px !important;
+}
+.list-container ul li{
+  color: #fff;
+  font-weight: bold;
+}
+.list-container ul li div{
+  padding: 15px;
+  border-bottom: 1px solid #000;
+}
+
+.list-container ul li div p{
+  display: inline-block !important;
+}
+
+.list-container ul li div .del-button{
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 10px;
+  float: right;
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+}
+
+.header{
+  margin-left: 20px;
+  color: white;
+}
