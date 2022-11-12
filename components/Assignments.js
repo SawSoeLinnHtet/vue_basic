@@ -1,68 +1,66 @@
 import AssignmentList from "./AssignmentList.js";
+import AssignmentCreate from "./AssignmentCreate.js";
 
 export default {
-  template:`
+  template: `
     <div>
       <h2 style="text-align: center;margin-top: 10px;color:white;">
         ToDo List
       </h2>
-      <div class="input-area">
-        <form @submit.prevent="addNewList">
-          <input type="text" v-model="new_todo">
-          <button type="submit">
-            Add Your Works
-          </button>
-        </form>
-      </div>
-      <assignment-list title="In Progress:" :todolists=filters.inProgress></assignment-list>
-      <assignment-list title="Complete:" :todolists=filters.completed></assignment-list>
+      <assignment-create @add="addNewList"></assignment-create>
+      <assignment-list title="In Progress:" :lists="filters.inProgress"></assignment-list>
+      <assignment-list title="Complete:" :lists="filters.completed"></assignment-list>
     </div>
   `,
-  components:{
-    AssignmentList
+  components: {
+    AssignmentList,
+    AssignmentCreate,
   },
-  data(){
-    return{
-      todolists:[
+  data() {
+    return {
+      todoLists: [
         {
           id: 1,
           name: "Blah",
-          active: false
+          active: false,
+          major: "Math",
         },
         {
           id: 2,
           name: "Dah",
-          active: false
+          active: false,
+          major: "Math",
         },
         {
           id: 3,
           name: "Di",
-          active: false
-        }
+          active: false,
+          major: "English",
+        },
       ],
-      new_todo: ''
     }
   },
-  methods:{
-    addNewList(){
+  methods: {
+    addNewList(listName) {
       let new_list = {
-        id: this.todolists.length + 1,
-        name: this.new_todo,
-        active: false
+        id: this.todoLists.length + 1,
+        name: listName,
+        active: false,
       }
-      this.todolists.push(new_list);
-      this.new_todo= ''
+      this.todoLists.push(new_list)
+      this.new_todo = ""
     },
-    deleteList(id){
-      
-    }
+    deleteList(id) {
+      let deletedLists = this.todoLists.filter((list) => list.id !== id)
+      this.todoLists = deletedLists
+    },
   },
-  computed:{
-    filters(){
-      return{
-        completed: this.todolists.filter((a)=>a.active == true),
-        inProgress: this.todolists.filter((a)=>a.active == false)
+  computed: {
+    filters() {
+      return {
+        completed: this.todoLists.filter((a) => a.active == true),
+        inProgress: this.todoLists.filter((a) => a.active == false),
       }
-    }
-  }
+    },
+  },
 }

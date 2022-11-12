@@ -74,3 +74,18 @@ body{
   margin-left: 20px;
   color: white;
 }
+.major{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  margin-left: 20px;
+  align-items: center;
+  gap: 10px;
+}
+.major button{
+  background-color: transparent;
+  border: 1px solid #fafafa;
+  padding: 2px 5px;
+  color: #fff;
+  border-radius: 5px;
+}

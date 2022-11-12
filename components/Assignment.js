@@ -8,7 +8,7 @@ export default{
             {{ list.name }}
           </p>
       </label>
-      <button class="del-button">
+      <button class="del-button" @click="deleteById(list.id)">
         x
       </button>
     </div>
@@ -18,6 +18,11 @@ export default{
     list:{
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    deleteById(id) {
+      this.$emit('delete', id)
     }
   }
 }
