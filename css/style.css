@@ -96,3 +96,7 @@ body{
   cursor: pointer;
   text-transform: capitalize;
 }
+.active{
+  border: 1px solid greenyellow !important;
+  color: greenyellow !important;
+}

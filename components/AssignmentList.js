@@ -7,7 +7,7 @@ export default {
       <h3 class="header">
         {{ title }}
       </h3>
-      <assignment-major :major-lists="lists.map(a => a.major)" @change="currentMajor = $event"/>
+      <assignment-major :major-lists="lists.map(a => a.major)" @change="currentMajor = $event" v-model:cMajor="currentMajor"/>
       <div class="list-container">
         <ul>
           <assignment v-for="todoList in filteredToDos" :key="todoList.id" :list="todoList"></assignment>

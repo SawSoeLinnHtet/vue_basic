@@ -3,15 +3,17 @@ export default {
     <div class="major">
       <button
           @click="$emit('change', major)"
-          v-for="major in majors">
+          v-for="major in majors"
+          :class="{ 'active' : major == cMajor }">
           {{ major }}
       </button>
     </div>
   `,
   props: {
+    cMajor: String,
     majorLists: {
       type: Array,
-      required: true
+      required: true,
     },
   },
   computed: {
@@ -19,5 +21,4 @@ export default {
       return ["all", ...new Set(this.majorLists)]
     },
   },
-
 }
