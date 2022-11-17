@@ -1,4 +1,5 @@
 import Assignment from "./Assignment.js"
+import AssignmentMajor from "./AssignmentMajor.js"
 
 export default {
   template: `
@@ -6,13 +7,7 @@ export default {
       <h3 class="header">
         {{ title }}
       </h3>
-      <div class="major">
-        <button
-           @click="changeCurrent(major)"
-           v-for="major in majors">
-           {{ major }}
-        </button>
-      </div>
+      <assignment-major :major-lists="lists.map(a => a.major)" @change="currentMajor = $event"/>
       <div class="list-container">
         <ul>
           <assignment v-for="todoList in filteredToDos" :key="todoList.id" :list="todoList"></assignment>
@@ -32,24 +27,22 @@ export default {
   },
   data() {
     return {
-      currentMajor: "",
+      currentMajor: 'all'
     }
   },
-  components: { Assignment },
+  components: { Assignment, AssignmentMajor },
   methods: {
     deleteTodo(id) {
       this.$emit("delete", id)
     },
-    changeCurrent(major) {
-      this.currentMajor = major
-    }
   },
   computed: {
     filteredToDos() {
-      return this.lists
-    },
-    majors() {
-      return ["all", ...new Set(this.lists.map((a) => a.major))]
+      if(this.currentMajor === 'all') {
+        return this.lists;
+      }else {
+        return this.lists.filter(a => a.major == this.currentMajor);
+      }
     },
   },
 }

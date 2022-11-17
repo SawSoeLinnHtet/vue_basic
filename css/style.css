@@ -28,6 +28,10 @@ body{
   padding: 10px 20px;
   border: 1px solid darkcyan;
   border-radius: 5px;
+  margin-left: 10px;
+}
+.input-area input:first-child{
+  margin-left: 0;
 }
 .input-area button{
   padding: 10px 5px;
@@ -35,6 +39,7 @@ body{
   border: 1px solid darkcyan;
   background-color: lightpink;
   color:#000;
+  margin-left: 10px;
 }
 .list-container{
   height: auto;
@@ -88,4 +93,6 @@ body{
   padding: 2px 5px;
   color: #fff;
   border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
 }

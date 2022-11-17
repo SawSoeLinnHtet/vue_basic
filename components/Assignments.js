@@ -8,8 +8,10 @@ export default {
         ToDo List
       </h2>
       <assignment-create @add="addNewList"></assignment-create>
-      <assignment-list title="In Progress:" :lists="filters.inProgress"></assignment-list>
-      <assignment-list title="Complete:" :lists="filters.completed"></assignment-list>
+      <assignment-list title="In Progress:" :lists="filters.inProgress">
+      </assignment-list>
+      <assignment-list title="Complete:" :lists="filters.completed">
+      </assignment-list>
     </div>
   `,
   components: {
@@ -23,32 +25,32 @@ export default {
           id: 1,
           name: "Blah",
           active: false,
-          major: "Math",
+          major: "math",
         },
         {
           id: 2,
           name: "Dah",
           active: false,
-          major: "Math",
+          major: "math",
         },
         {
           id: 3,
           name: "Di",
           active: false,
-          major: "English",
+          major: "english",
         },
       ],
     }
   },
   methods: {
-    addNewList(listName) {
+    addNewList(listName, major) {
       let new_list = {
         id: this.todoLists.length + 1,
         name: listName,
         active: false,
+        major: major
       }
       this.todoLists.push(new_list)
-      this.new_todo = ""
     },
     deleteList(id) {
       let deletedLists = this.todoLists.filter((list) => list.id !== id)
